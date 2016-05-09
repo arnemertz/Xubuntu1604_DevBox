@@ -46,5 +46,5 @@ echo -----------------------------------
 sudo apt-get -y install python-pip
 sudo pip install conan
 su -l -c conan vagrant
-sed -i "s/compiler=gcc/compiler=clang/; s/version=[0-9.]*/version=$CLANG_VERSION/" ~vagrant/.conan/conan.conf
+sed -i "s/compiler=gcc/compiler=clang/; s/version=[0-9.]*/version=$CLANG_VERSION/; s/libstdc++/libstdc++11/" ~vagrant/.conan/conan.conf
 
