@@ -4,10 +4,10 @@
 
 Based on a Xubuntu 16.04 installation, this Vagrant file installs the "4C" development environment with:
 
-- **C**lang 3.7
+- **C**lang 3.8
 - **C**make (newest, currently 3.5.1)
-- **C**Lion 2016.1.1 IDE
-- **C**onan (newest, currently 0.9.0) package manager for C++
+- **C**Lion 2016.1.3 IDE
+- **C**onan (newest, currently 0.10.1) package manager for C++
 
 ... and some more useful stuff like lldb and of course git.
 
@@ -46,10 +46,10 @@ When the software installation is complete, log into the VM (user and password a
 
 Inside the VM, open a terminal and run 
 
-    /opt/clion-2016.1.1/bin/clion.sh
+    /opt/clion-2016.1.3/bin/clion.sh
 	
 It wil start the actual installation wizard for CLion. 
-You may or may not switch to `/usr/bin/cmake` from the one the comes with CLion; currently both are the same version.
+You may or may not switch to `/usr/bin/cmake` from the one that comes with CLion; currently both are the same version.
 For the compiler just use the default `/usr/bin/c++`
 
 ## Configuration
@@ -66,11 +66,11 @@ Go through the example like it is stated on Conan's page:
 2. If you cloned the repository, open `.gitignore` and add `.idea/` as additional line. That is the directory CLion uses for its configuration stuff.
 3. In `CMakeLists.txt`, change the line 
         
-		`include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)`
+		include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 	
     to
 	
-	    `include(build/conanbuildinfo.cmake)`
+	    include(build/conanbuildinfo.cmake)
 		
 4. Continue normally with `mkdir build && cd build`
 5. There are no compiled binaries for all packages needen, so we need to tell Conan to build them as needed:

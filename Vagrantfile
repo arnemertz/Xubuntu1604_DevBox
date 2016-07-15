@@ -46,6 +46,7 @@ Vagrant.configure(2) do |config|
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
     vb.gui = true
+	vb.name = "Xubuntu1604_DevBox"
 	#
 	# You may have to comment out or tinker with the values of some of the
 	# customizations, below, to suit the needs/limits of your local machine.
@@ -63,7 +64,7 @@ Vagrant.configure(2) do |config|
 	vb.customize ["modifyvm", :id, "--hwvirtex", "on"]
     # Enable, if Guest Additions are installed, whether hardware 3D acceleration should be available
 	vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
-	#
+	vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
 	# See Chapter 8. VBoxManage | VirtualBox Manual located @ virtualbox.org/manual/ch08.html
 	# for more information on available options.
   end

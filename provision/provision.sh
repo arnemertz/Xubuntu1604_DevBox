@@ -1,9 +1,5 @@
-if [ -e /var/lib/dpkg/lock ]; then
-	echo -----------------------------------
-	echo REMOVE /var/lib/dpkg/lock
-	echo -----------------------------------
-	sudo rm -f /var/lib/dpkg/lock
-fi
+CLION_VERSION=2016.1.3
+CLANG_VERSION=3.8
 
 apt-get update && apt-get -y upgrade && apt-get -y autoremove	
 
@@ -15,7 +11,6 @@ sudo apt-get -y install git
 echo -----------------------------------
 echo INSTALL COMPILER
 echo -----------------------------------
-CLANG_VERSION=3.7
 for PROG in clang lldb; do
 	sudo apt-get -y install ${PROG}-${CLANG_VERSION}
 	for C in $(ls /usr/bin/${PROG}*${CLANG_VERSION}); do
@@ -36,7 +31,6 @@ sudo apt-get -y install cmake
 echo -----------------------------------
 echo DOWNLOAD CLION
 echo -----------------------------------
-CLION_VERSION=2016.1.1
 sudo wget -q http://download.jetbrains.com/cpp/CLion-${CLION_VERSION}.tar.gz
 sudo tar xfz CLion-${CLION_VERSION}.tar.gz -C /opt
 
@@ -44,6 +38,7 @@ echo -----------------------------------
 echo INSTALL CONAN
 echo -----------------------------------
 sudo apt-get -y install python-pip
+sudo pip install --upgrade pip
 sudo pip install conan
 su -l -c conan vagrant
 sed -i "s/compiler=gcc/compiler=clang/; s/version=[0-9.]*/version=$CLANG_VERSION/; s/libstdc++/libstdc++11/" ~vagrant/.conan/conan.conf
