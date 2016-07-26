@@ -1,4 +1,4 @@
-CLION_VERSION=2016.1.3
+CLION_VERSION=2016.2
 CLANG_VERSION=3.8
 
 apt-get update && apt-get -y upgrade && apt-get -y autoremove	
