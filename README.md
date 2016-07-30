@@ -6,7 +6,7 @@ Based on a Xubuntu 16.04 installation, this Vagrant file installs the "4C" devel
 
 - **C**lang 3.8
 - **C**make (newest, currently 3.5.1)
-- **C**Lion 2016.1.3 IDE
+- **C**Lion 2016.2 IDE
 - **C**onan (newest, currently 0.10.1) package manager for C++
 
 ... and some more useful stuff like lldb and of course git.
@@ -46,7 +46,7 @@ When the software installation is complete, log into the VM (user and password a
 
 Inside the VM, open a terminal and run 
 
-    /opt/clion-2016.1.3/bin/clion.sh
+    /opt/clion-2016.2/bin/clion.sh
 	
 It wil start the actual installation wizard for CLion. 
 You may or may not switch to `/usr/bin/cmake` from the one that comes with CLion; currently both are the same version.
